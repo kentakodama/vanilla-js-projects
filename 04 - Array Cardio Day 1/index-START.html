@@ -61,7 +61,20 @@
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
     
+    //how to create a hash in js
+    //use reduce that start with empty hash then adds it up incrementally
+    const transportation = data.reduce(function(obj, item) {
+      if (!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item] ++;
+      return obj;
+      
+    }, {})
+    
+    console.table(transportation)
   </script>
 </body>
 </html>
