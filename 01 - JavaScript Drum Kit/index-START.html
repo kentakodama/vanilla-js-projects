@@ -60,7 +60,7 @@
 <script>
   
   //this does two things: plays sound and changes css styling 
-  function playSound() {
+  function playSound(e) {
     //event has an attribute of many things including keycode
     // selecting audio element by keycode
     const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
