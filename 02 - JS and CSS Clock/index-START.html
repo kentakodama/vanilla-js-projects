@@ -65,14 +65,38 @@
       /*this will make the pivot or origin of the rotation to the very right of element*/
       transform-origin: 100%;
       transform: rotate(90deg);
-      transition: all 0.5s;
-      
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(1, -0.28, 0.17, 1.54);
     }
 
   </style>
 
   <script>
-
+    
+    const secondHand = document.querySelector('.second-hand');
+    const minuteHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+    
+    function setDate() {
+      const now = new Date();
+      
+      const second = now.getSeconds();
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees})`
+      
+      const minutes = now.getMinutes();
+      const minutesDegree = ((seconds / 60) * 360) + 90;
+      minuteHand.style.transform = `rotate(${minutesDegree})`
+      
+      const hours = now.getHours();
+      const hoursDegree = (())
+      
+    }
+    
+    setInterval(setDate, 1000)
+    
+    
+    
 
   </script>
 </body>
