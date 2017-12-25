@@ -57,48 +57,48 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
-<script>
-  
-  //this does two things: plays sound and changes css styling 
-  function playSound(e) {
-    //event has an attribute of many things including keycode
-    // selecting audio element by keycode
-    const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
-    //selecting div element with BOTH .key class and corresponding data-key 
-    const key = document.querySelector(`.key[data-key='${e.keyCode}']`)
-    //stops function immediately if there's audio element associated with key
-    if(!audio) return; 
-    //restars property so can be played in succession
-    audio.currentTime = 0;
-    audio.play();
+  <script>
     
-    key.classList.add('playing')
-  }
-  
-  //this resets the css styling after the playing class changes the key element 
-  // 1 actually removes CSS 
-  function removeTransition(e) {
-    if(e.propertyName !== 'transform') return;
+    //this does two things: plays sound and changes css styling 
+    function playSound(e) {
+      //event has an attribute of many things including keycode
+      // selecting audio element by keycode
+      const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
+      //selecting div element with BOTH .key class and corresponding data-key 
+      const key = document.querySelector(`.key[data-key='${e.keyCode}']`)
+      //stops function immediately if there's audio element associated with key
+      if(!audio) return; 
+      //restars property so can be played in succession
+      audio.currentTime = 0;
+      audio.play();
+      
+      key.classList.add('playing')
+    }
     
-    this.classList.remove('playing')
+    //this resets the css styling after the playing class changes the key element 
+    // 1 actually removes CSS 
+    function removeTransition(e) {
+      if(e.propertyName !== 'transform') return;
+      
+      this.classList.remove('playing')
+      
+    }
     
-  }
-  
-  //2 this listens for whether the first transition has ended 
-  //adding an event listener to all elements with a class of key 
-  // 1 select all 
-  const keys = document.querySelectorAll('.key');
-  // 2 must add an event listener to all elements individually
-  keys.forEach((key) => {
-    key.addEventListener('transitionend', removeTransition)
-  })
-  
-  //this listens for all key presses
-  window.addEventListener('keydown', playSound);
+    //2 this listens for whether the first transition has ended 
+    //adding an event listener to all elements with a class of key 
+    // 1 select all 
+    const keys = document.querySelectorAll('.key');
+    // 2 must add an event listener to all elements individually
+    keys.forEach((key) => {
+      key.addEventListener('transitionend', removeTransition)
+    })
+    
+    //this listens for all key presses
+    window.addEventListener('keydown', playSound);
 
 
 
-</script>
+  </script>
 </body>
 
 </html>
