@@ -58,9 +58,30 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  
+  window.addEventListener('keydown', (e) => {
+    //event has an attribute of many things including keycode
+    
+    // selecting audio element by keycode
+    const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
+    
+    //stops function immediately if there's audio element associated with key
+    if(!audio) return; 
+    audio.currentTime = 0;
+    audio.play();
+  })
+  
 
 </script>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
