@@ -45,13 +45,26 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-    
+    // go to above link, inspect the doc 
+    // pull out the parent container for all street names (.mq-category)
     const category = document.querySelector('.mq-category');
-    const links = [...category.querySelector('a')];
-    //both work
-    //const links = Array.from(category.querySelector('a'));
     
-    const de = links
+    //possible to use querySelector on any html element ie category which we pulled from above 
+    //these will convert the nodeList into an array 
+    
+    //1 old way
+    const linksNodeList = category.querySelector('a');
+    const linksArray1 = [];
+    linksNodeList.forEach((link) => {linksArray1.push(link)})
+    
+    // 2 from array easiest to read
+    const linksArray2 = Array.from(category.querySelector('a'));
+    
+    //spread operator, then wrap in array brackets
+    const linksArray3 = [...category.querySelector('a')];
+  
+    
+    const de = links1
                     .map(link => link.textContent);
                     .filter(streetName => streetName.includes('de')
 
