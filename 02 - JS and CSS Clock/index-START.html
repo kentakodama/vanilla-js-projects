@@ -84,7 +84,7 @@
       const secondsDegrees = ((seconds / 60) * 360) + 90;
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`
       //we can apply css styling like this on a dom element 
-      //remember that the arg inside the rotate prop needs a deg
+      //remember that the arg inside the rotate prop needs a deg 
       
       const minutes = now.getMinutes();
       const minutesDegree = ((minutes / 60) * 360) + 90;
@@ -97,6 +97,8 @@
     
     setInterval(setDate, 1000)
     
+    //by calling func, we are initializing immediately
+    //no lag time
     setDate();
     
   </script>
