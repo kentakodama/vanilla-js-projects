@@ -65,6 +65,7 @@
     
     //how to create a hash in js
     //use reduce that start with empty hash then adds it up incrementally
+    //no way to set an inital value for all possible keys
     const transportation = data.reduce(function(obj, item) {
       if (!obj[item]) {
         obj[item] = 0;
