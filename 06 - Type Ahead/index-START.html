@@ -45,6 +45,8 @@
     // WOWOWOW create an html element from an array of cities 
     const html = matchArray.map(place => {
       // WOWOWOW can return an entire DOM node with interpolated info 
+      //BONUS go back to video for more info on highlighting the results that have been typed 
+      // BONUS this requires creating a regex var, then replacing the results with a highlighted version of that in a span
       return `
         <li>
           <span class='name'>${place.city}, ${place.state}</span>
