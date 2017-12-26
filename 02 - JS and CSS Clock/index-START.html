@@ -82,9 +82,9 @@
 
       const seconds = now.getSeconds();
       const secondsDegrees = ((seconds / 60) * 360) + 90;
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`
       //we can apply css styling like this on a dom element 
       //remember that the arg inside the rotate prop needs a deg 
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`
       
       const minutes = now.getMinutes();
       const minutesDegree = ((minutes / 60) * 360) + 90;
