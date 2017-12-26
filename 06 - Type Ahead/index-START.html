@@ -21,9 +21,11 @@
   
   const cities = [];
   
+  // 2 this fetch is like ajax and axios but more primitive
+  // a fetch will always return a promise, a promise is a 'promise' to return real data or an error once things are loaded back from te source
   fetch(endpoint)
-      .then(blob => blob.json())
-      .then(data => cities.push(...data))
+      .then(blob => blob.json()) // 3 .json() is a built in method on the promise. can log in console
+      .then(data => cities.push(...data)) // 4 interesting way to copy data, spread then push
   
 </script>
   </body>
