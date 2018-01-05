@@ -7,6 +7,18 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+
+  //create a canvas
+  // but we can't directly draw anything on canvas, must draw on the context property on canvas
+  const canvas = document.querySelector('#draw')
+
+  //create a context from the canvas here, in this case it will be the 2d property
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+
 </script>
 
 <style>
