@@ -34,7 +34,13 @@
 
     if(!isDrawing) return;
 
-  } 
+  }
+
+  //very useful event listeners
+  canvas.addEventListener('mousemove', draw); //captures coordinates
+  canvas.addEventListener('mousedown', () => isDrawing = true); //switches whether to activate drawing
+  canvas.addEventListener('mouseup', () => isDrawing = false); //switches back
+  canvas.addEventListener('mouseout' () => isDrawing = false); //switches back
 
 
 </script>
