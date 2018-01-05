@@ -32,15 +32,16 @@
 
   function draw(e) {
 
-    if(!isDrawing) return;
+    if(!isDrawing) return; //these are called flags
 // 1)
     ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offsetX, e.offsetY)
-    ctx.stroke();
-    //below resets start point 
+    ctx.moveTo(lastX, lastY); //this sets start
+    ctx.lineTo(e.offsetX, e.offsetY) // this set the end coordinate
+    ctx.stroke(); //this connects start and end with a line
+    //below resets start point
     [lastX, lastY] = [e.offsetX, e.offsetY];
   }
+
 
   //very useful event listeners
   canvas.addEventListener('mousemove', draw); //captures coordinates
