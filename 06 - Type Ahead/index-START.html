@@ -24,28 +24,28 @@
   fetch(endpoint)
       .then(blob => blob.json()) // 3 .json() is a built in method on the promise. can log in console
       .then(data => cities.push(...data)) // 4 interesting way to copy data, spread then push
-  
+
   //filtering function
   function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
-      
-      //because wordToMatch is a var, we cannot interpolate it directly in match() 
+
+      //because wordToMatch is a var, we cannot interpolate it directly in match()
       // so we have to create a regular expression from the var then plug it into match()
       const regex = new RegExp(wordToMatch, 'gi');
       return place.city.match(regex) || place.state.match(regex);
     })
-    
+
   }
-  
-  
+
+
   function displayMatches() {
-    //get matches 
+    //get matches
     const matchArray = findMatches(this.value, cities);
-    
-    // WOWOWOW create an html element from an array of cities 
+
+    // WOWOWOW create an html element from an array of cities
     const html = matchArray.map(place => {
-      // WOWOWOW can return an entire DOM node with interpolated info 
-      //BONUS go back to video for more info on highlighting the results that have been typed 
+      // WOWOWOW can return an entire DOM node with interpolated info
+      //BONUS go back to video for more info on highlighting the results that have been typed
       // BONUS this requires creating a regex var, then replacing the results with a highlighted version of that in a span
       return `
         <li>
@@ -56,15 +56,15 @@
     }).join('') //this deletes the commas and turns all the html into one long string
     suggestions.innerHTML = html // injects html li as children of the suggestions UL
   }
-  
-  const seachInput = document.querySelector('.search');
+
+  const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('.suggestions');
-  
+
   //captures input values when it changes after mouse click away AND on each key stroke
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', displayMatches);
-  
-  
+
+
 </script>
   </body>
 </html>
