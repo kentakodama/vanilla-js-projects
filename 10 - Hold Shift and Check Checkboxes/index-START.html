@@ -113,19 +113,44 @@
     let boxes = document.querySelectorAll('input')
     let checkedIndex = undefined;
 
-    function findClosest(arr, start)
+    function findClosest(arr, start) {
+
+      let right = start
+      let left = start
+      while (right <= arr.length || left >= 0) {
+        if (arr[right][checked]) {
+          return [start, right]
+        } else if (arr[left][checked]) {
+          return [left, start]
+        }
+        right ++;
+        left --;
+      }
+
+      return undefined
+      //this will return a sorted [start, end]
+    }
+
+    function handleChecking(arr, start) {
+
+      let range = findClosest(arr, start)
+
+      if(range === undefined) {return}
+
+      arr.forEach((input, index) => {
+        if (index >= range[0] && index <= range[1]) {
+          input[checked] = true
+        }
+      })
+
+      //this changes the checks of that particular range
+    }
 
     function check(index) {
 
       if(!shift) {return};
 
-      let counter = index;
-      while (counter >= 0) {
-
-        i ++;
-      }
-
-
+      handleChecking(boxes, index)
 
     }
 
