@@ -102,7 +102,13 @@
 
     // listen for a shift with boolean
     let shift = false;
-    document.addEventListener()
+    document.addEventListener('keydown', (e) => {
+      shift = (e.keyCode === 16)
+    })
+
+    document.addEventListener('keyup', () => {
+      shift = false;
+    })
 
     // get a list of all checked boxes
     // listen for a click, run check function
