@@ -12,5 +12,26 @@ const ranges = player.querySelector('.player__slider')
 
 // build all functions
 
+function togglePlay() {
+  //paused is a property on video
+  if(video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function updateButton() {
+  //store in var from ernary operator
+  const icon = this.pause ? '►' : '❚ ❚';
+  toggle.textContent = icon;
+  console.log(this);
+}
 
 // hook up event listeners
+video.addEventListener('click', togglePlay)
+//interesting!
+video.addEventListener('play', updateButton)
+video.addEventListener('pause', updateButton)
+
+toggle.addEventListener('click', togglePlay)
