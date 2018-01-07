@@ -23,7 +23,7 @@ function togglePlay() {
 
 function updateButton() {
   //store in var from ernary operator
-  const icon = this.pause ? '►' : '❚ ❚';
+  const icon = this.paused ? '►' : '❚ ❚';
   toggle.textContent = icon;
   console.log(this);
 }
