@@ -48,6 +48,11 @@ function handleProgress() {
   progressBar.style.flexBasis = `${percent}%`
 }
 
+//if a callback takes an event its always passed in below
+function scrub(e) {
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration
+  video.currentTime = scrubTime;
+}
 
 // 2 hook up event listeners
 video.addEventListener('click', togglePlay);
@@ -69,3 +74,13 @@ ranges.forEach((range) => {
 ranges.forEach((range) => {
   range.addEventListener('mousemove', handleRangeUpdate)
 });
+
+
+
+progress.addEventListener('click', scrub);
+//these below will allow for dragging the progress bar
+//only runs scrub when the mouse is down
+let mousedown = false;
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+progress.addEventListener('mousedown', () => mousedown = true));
+progress.addEventListener('mouseup', () => mouseup = false);
