@@ -106,9 +106,7 @@
       shift = (e.keyCode === 16)
     })
 
-    document.addEventListener('keyup', () => {
-      shift = false;
-    })
+    document.addEventListener('keyup', () => shift = false)
 
     let boxes = document.querySelectorAll('input')
 
@@ -159,20 +157,7 @@
         check(i)
       })
     })
-    // listen for a click, run check function
-
-    //check function, flag if not shift
-
-    //if shift key pressed, get index of pressed,
-
-    // check if any above are checked, get index
-
-    //check if any below are checked, get index
-
-    // change all checked booleans to true for all indices in range
-
-
-
+  
 </script>
 </body>
 </html>
