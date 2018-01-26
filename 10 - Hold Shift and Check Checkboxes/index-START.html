@@ -111,7 +111,7 @@
     let boxes = document.querySelectorAll('input')
 
     function findClosest(arr, start) {
-      console.log(arr[0]['checked']);
+      
       let right = start + 1
       let left = start - 1
       while (right <= arr.length || left >= 0) {
@@ -128,10 +128,10 @@
       //this will return a sorted [start, end]
     }
 
-    function handleChecking(arr, start) {
+    function handleMultiChecking(arr, start) {
 
       let range = findClosest(arr, start)
-      console.log(range);
+    
       if(range === undefined) {return}
 
       arr.forEach((input, index) => {
@@ -147,7 +147,7 @@
 
       if(!shift) {return};
 
-      handleChecking(boxes, index)
+      handleMultiChecking(boxes, index)
 
     }
 
