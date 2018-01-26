@@ -68,8 +68,8 @@
       const key = document.querySelector(`.key[data-key='${e.keyCode}']`)
       //stops function immediately if there's audio element associated with key
       if(!audio) return;
-      //restars property so can be played in succession
-      audio.currentTime = 0;
+      
+      audio.currentTime = 0; //restarts property so can be played in succession
       audio.play();
 
       key.classList.add('playing')
