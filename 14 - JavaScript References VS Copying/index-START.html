@@ -36,12 +36,12 @@
       age: 80
     };
 
-    // and think we make a copy:
-
-    // how do we take a copy instead?
-
-    // We will hopefully soon see the object ...spread
-
+    //this copies a fresh object 
+    const captain = Object.assign({}, person)
+    
+    // this copies the object like above then asssigns it new keys and values to update it
+    const captain2 = Object.assign({}, person, {job: 'programmer'})
+    
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
   </script>
